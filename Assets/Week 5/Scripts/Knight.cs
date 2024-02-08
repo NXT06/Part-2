@@ -39,10 +39,16 @@ public class Knight : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && !clickOnSelf)
         {
-            UnityEngine.Debug.Log("click");
+            
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         animator.SetFloat("Movement", movement.magnitude);
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            UnityEngine.Debug.Log("click");
+            animator.SetTrigger("Attack");
+        }
 
     }
     private void OnMouseDown()
@@ -71,5 +77,10 @@ public class Knight : MonoBehaviour
             animator.SetTrigger("TakeDamage");
         }
 
+    }
+
+    private void OnMouseEnter()
+    {
+        
     }
 }
