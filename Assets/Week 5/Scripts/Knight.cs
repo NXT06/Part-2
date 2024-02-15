@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Knight : MonoBehaviour
 {
@@ -21,9 +22,17 @@ public class Knight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+       
+        health = PlayerPrefs.GetFloat("HealthSave", 5);
+        SendMessage("CurrentHP", health, SendMessageOptions.DontRequireReceiver);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (health < 1)
+        {
+            //die
+            isDead = true;
+            animator.SetTrigger("Death");
+        }
     }
 
     private void FixedUpdate()
@@ -35,7 +44,8 @@ public class Knight : MonoBehaviour
         {
             movement = Vector2.zero;
         }
-        rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);    
+        rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
+        
     }
     // Update is called once per frame
     void Update()
@@ -71,6 +81,7 @@ public class Knight : MonoBehaviour
 
         health = Mathf.Clamp(health, 0, maxHealth);
         health -= damage;
+        PlayerPrefs.SetFloat("HealthSave", health);
         if (health < 1)
         {
             //die
@@ -81,12 +92,10 @@ public class Knight : MonoBehaviour
         {
             isDead = false;
             animator.SetTrigger("TakeDamage");
+            
         }
-
-    }
-
-    private void OnMouseEnter()
-    {
         
+
     }
+
 }
