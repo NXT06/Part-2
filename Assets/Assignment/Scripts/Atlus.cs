@@ -9,12 +9,14 @@ public class Atlus : MonoBehaviour
     Vector2 destination;
     Vector2 movement;
     public float speed = 3;
+    int bullets;
     Rigidbody2D atlasRb;
     Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        bullets = 5;
         atlasRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -40,6 +42,23 @@ public class Atlus : MonoBehaviour
             UnityEngine.Debug.Log(destination);
         }
        animator.SetFloat("Direction", movement.x);
+        animator.SetFloat("Fire Direction", destination.x);
 
+        if (Input.GetMouseButtonDown(1))
+        {
+          if (bullets > 0)
+            {
+                animator.SetTrigger("Fire");
+                bullets--;
+            }
+           
+
+        }
+    }
+
+    public void Reload()
+    {
+        bullets = Mathf.Clamp(0, 0, 5);
+        bullets += 5;
     }
 }
