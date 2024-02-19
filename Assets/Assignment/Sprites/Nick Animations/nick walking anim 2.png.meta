@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7fc782ea246b574986dfb5a78a88dcc
+guid: 9f92b0e389f4fbb4db007a0961f23889
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nick walking anim_0
+      name: nick walking anim 2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3693589fe26041459fc47ebfd396534
-      internalID: 841924223
+      spriteID: bada247a84b2ee243a44a1c037304599
+      internalID: 2130388555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_1
+      name: nick walking anim 2_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3dffd3993df6ab48b0e03c625e422af
-      internalID: 1963376601
+      spriteID: cfb948e9c62b2974d87a657e1694b253
+      internalID: -969553624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_2
+      name: nick walking anim 2_2
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181993da966817f4f87dffc3a651e8fb
-      internalID: -2110311371
+      spriteID: ba22d680bf8080841ae7656e56e63388
+      internalID: -1234427964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_3
+      name: nick walking anim 2_3
       rect:
         serializedVersion: 2
         x: 192
@@ -213,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad4a0b35bcaea1f49adeb921f121e1a9
-      internalID: 1629258531
+      spriteID: 5922af4322d253341a170e7b1152b811
+      internalID: 859523375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_4
+      name: nick walking anim 2_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3528ee9aab3060478f6b8aaf74759dc
-      internalID: -474992849
+      spriteID: 046da4ad94c746f489503d8ea65bffd2
+      internalID: -1232353949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_5
+      name: nick walking anim 2_5
       rect:
         serializedVersion: 2
         x: 320
@@ -255,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 945c7455f1a212742b0e2f09f3c9386d
-      internalID: 1332803695
+      spriteID: 0c03365aaa379ab499ff6a4e2e912094
+      internalID: -1747242019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_6
+      name: nick walking anim 2_6
       rect:
         serializedVersion: 2
         x: 384
@@ -276,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55a149014a2e88744b4fbcf5fc20ee73
-      internalID: 545691470
+      spriteID: 51092f1d7c83d974786ab9f801ce0cf7
+      internalID: 1910190997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nick walking anim_7
+      name: nick walking anim 2_7
       rect:
         serializedVersion: 2
         x: 448
@@ -297,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45fa965ddaf330e4794893caedff2bf7
-      internalID: -236625916
+      spriteID: 475203ae0977be54eb485733d0fc74a2
+      internalID: 945225375
       vertices: []
       indices: 
       edges: []
@@ -314,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      nick walking anim_0: 841924223
-      nick walking anim_1: 1963376601
-      nick walking anim_2: -2110311371
-      nick walking anim_3: 1629258531
-      nick walking anim_4: -474992849
-      nick walking anim_5: 1332803695
-      nick walking anim_6: 545691470
-      nick walking anim_7: -236625916
+      nick walking anim 2_0: 2130388555
+      nick walking anim 2_1: -969553624
+      nick walking anim 2_2: -1234427964
+      nick walking anim 2_3: 859523375
+      nick walking anim 2_4: -1232353949
+      nick walking anim 2_5: -1747242019
+      nick walking anim 2_6: 1910190997
+      nick walking anim 2_7: 945225375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

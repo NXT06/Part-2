@@ -43,6 +43,7 @@ public class Knight : MonoBehaviour
         if (movement.magnitude < 0.1)
         {
             movement = Vector2.zero;
+            UnityEngine.Debug.Log(movement);
         }
         rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
         
