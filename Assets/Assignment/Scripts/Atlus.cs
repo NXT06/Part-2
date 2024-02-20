@@ -7,11 +7,14 @@ using UnityEngine;
 public class Atlus : MonoBehaviour
 {
     Vector2 destination;
-    Vector2 movement;
+    public Vector2 movement;
     public float speed = 3;
-    int bullets;
+    float bullets;
     Rigidbody2D atlasRb;
     Animator animator;
+    public Transform spawnL;
+    public Transform spawnR;
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class Atlus : MonoBehaviour
         bullets = 5;
         atlasRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        BroadcastMessage("Bullets", bullets, SendMessageOptions.DontRequireReceiver);
     }
     private void FixedUpdate()
     {
@@ -29,7 +33,7 @@ public class Atlus : MonoBehaviour
 
         }
         atlasRb.MovePosition(atlasRb.position + movement.normalized * speed * Time.deltaTime);
-       UnityEngine.Debug.Log(movement.x);
+       
     }
 
     // Update is called once per frame
@@ -39,26 +43,40 @@ public class Atlus : MonoBehaviour
         {
 
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            UnityEngine.Debug.Log(destination);
+            UnityEngine.Debug.Log(movement.x);
         }
        animator.SetFloat("Direction", movement.x);
-        animator.SetFloat("Fire Direction", destination.x);
+      
 
         if (Input.GetMouseButtonDown(1))
         {
-          if (bullets > 0)
-            {
-                animator.SetTrigger("Fire");
-                bullets--;
-            }
-           
-
+            Fire();
         }
     }
 
-    public void Reload()
+    private void Reload()
     {
         bullets = Mathf.Clamp(0, 0, 5);
         bullets += 5;
+        BroadcastMessage("Bullets", 5);
+    }
+
+    public void Fire()
+    {
+        if (bullets > 0)
+        {
+            animator.SetTrigger("Fire");
+            bullets--;
+            BroadcastMessage("Bullets", -1);
+            
+            if (movement.x > 0.1)
+            {
+                Instantiate(bulletPrefab, spawnR.position, spawnR.rotation);
+            }
+            if (movement.x < 0.1) 
+            {
+                Instantiate(bulletPrefab, spawnL.position, spawnL.rotation);
+            }
+        }
     }
 }
