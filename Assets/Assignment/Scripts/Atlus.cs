@@ -8,6 +8,7 @@ public class Atlus : MonoBehaviour
 {
     Vector2 destination;
     public Vector2 movement;
+    public Transform pos; 
     public float speed = 3;
     float bullets;
     Rigidbody2D atlasRb;
@@ -22,31 +23,36 @@ public class Atlus : MonoBehaviour
         bullets = 5;
         atlasRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        BroadcastMessage("Bullets", bullets, SendMessageOptions.DontRequireReceiver);
+        SendMessage("Bullets", bullets, SendMessageOptions.DontRequireReceiver);
+     
     }
     private void FixedUpdate()
     {
-        movement = destination - (Vector2)transform.position;
-        if (movement.magnitude < 0.1)
-        {
-            movement = Vector2.zero;
 
-        }
-        atlasRb.MovePosition(atlasRb.position + movement.normalized * speed * Time.deltaTime);
-       
+        
+            movement = destination - (Vector2)transform.position;
+            if (movement.magnitude < 0.1)
+            {
+                movement = Vector2.zero;
+
+            }
+            atlasRb.MovePosition(atlasRb.position + movement.normalized * speed * Time.deltaTime);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
 
-            destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            UnityEngine.Debug.Log(movement.x);
-        }
-       animator.SetFloat("Direction", movement.x);
-      
+        
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
+
+                destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                
+            }
+            animator.SetFloat("Direction", movement.x);
+        
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -58,7 +64,7 @@ public class Atlus : MonoBehaviour
     {
         bullets = Mathf.Clamp(0, 0, 5);
         bullets += 5;
-        BroadcastMessage("Bullets", 5);
+        SendMessage("Bullets", 5);
     }
 
     public void Fire()
@@ -67,7 +73,7 @@ public class Atlus : MonoBehaviour
         {
             animator.SetTrigger("Fire");
             bullets--;
-            BroadcastMessage("Bullets", -1);
+            SendMessage("Bullets", -1);
             
             if (movement.x > 0.1)
             {
@@ -78,5 +84,18 @@ public class Atlus : MonoBehaviour
                 Instantiate(bulletPrefab, spawnL.position, spawnL.rotation);
             }
         }
+    }
+  public void Boundaries(bool CanMove)
+    {
+        if (CanMove)
+        {
+            Debug.Log("yes");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit");
+        pos.transform.position = new Vector2(0, 0);
+        destination = Vector2.zero;
     }
 }
