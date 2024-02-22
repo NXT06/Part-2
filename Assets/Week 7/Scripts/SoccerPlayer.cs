@@ -9,12 +9,16 @@ public class SoccerPlayer : MonoBehaviour
     bool selected;
     SpriteRenderer highlight;
     public Color color1; 
-    public Color color2; 
+    public Color color2;
+    Rigidbody2D rb;
+    public float speed = 1000; 
    
     // Start is called before the first frame update
     void Start()
     {
-       highlight = GetComponent<SpriteRenderer>(); 
+       highlight = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        Selected(false); 
     }
 
     // Update is called once per frame
@@ -26,10 +30,10 @@ public class SoccerPlayer : MonoBehaviour
     private void OnMouseDown()
     {
 
-        Selected(true);
+        Controller.SetSelectedPlayer(this);
     }
     
-    void Selected(bool select)
+    public void Selected(bool select)
     {
         if (select)
         {
@@ -40,4 +44,9 @@ public class SoccerPlayer : MonoBehaviour
             highlight.color = color1;
         }
     }
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
+    }
+   
 }
