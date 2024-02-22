@@ -17,13 +17,10 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-   
-    }
     private void FixedUpdate()
     {
-        if (bullet.rotation >  1)
+        //testing for direction the player is currently facing (pos/neg), and then moving bullet in that direction.
+        if (bullet.rotation >  1)   
         {
             bullet.velocity = Vector2.left * speed;
         }
@@ -31,10 +28,10 @@ public class Bullet : MonoBehaviour
         {
             bullet.velocity = Vector2.right * speed;
         }
+        //destroying bullet after 1 second to prevent clutter in scene
         if (timer < maxTimer)
         {
             timer += Time.deltaTime;
-            UnityEngine.Debug.Log(timer);
         }
         else
         {
@@ -43,6 +40,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //destroying bullet once it collides
         Destroy(gameObject);
     }
 }

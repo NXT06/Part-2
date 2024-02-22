@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class TargetCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
     public Slider targetsLeft;
-    // Start is called before the first frame update
+ 
     public void Targets(float targets)
     {
-        targetsLeft.value += targets;
-        UnityEngine.Debug.Log(targets);
+        targetsLeft.value += targets;  //recieves message from targets and updates the target counter slider to display remaining targets 
+       
     }
 }
