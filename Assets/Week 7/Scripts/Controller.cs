@@ -4,14 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class Controller : MonoBehaviour
 {
     // Start is called before the first frame update
     public static SoccerPlayer SelectedPlayer { get; private set; }
+    public static int score; 
     public Slider chargeSlider;
     float charge;
-    float maxCharge = 5; 
+    float maxCharge = 5;
+    public TextMeshProUGUI scoreText;
     Vector2 direction; 
     
     public static void SetSelectedPlayer(SoccerPlayer player)
@@ -32,6 +35,7 @@ public class Controller : MonoBehaviour
             charge = 0;
             chargeSlider.value = 0;
         }
+        scoreText.text = score.ToString();
     }
     private void Update()
     {
